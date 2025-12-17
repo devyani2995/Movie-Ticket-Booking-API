@@ -5,29 +5,13 @@
 
 ---
 
-## Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-- [Environment Variables](#environment-variables)
-- [Available Scripts](#available-scripts)
-- [API Endpoints](#api-endpoints)
-- [Promo Types](#promo-types)
-- [Notes & Implementation Details](#notes--implementation-details)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
 ## Features ✅
 
 - User registration & login (JWT)
-- Role-based access control (ADMIN / CUSTOMER)
-- Admin: create movies, view all bookings
-- Customers: book tickets with optional promo codes
-- Atomic booking flow (MongoDB transactions)
+- Role-based access control (**Admin** and **Customer**)
+- Movie management and ticket booking
+- Promotion and discount handling
+- **Concurrency-safe seat booking** using MongoDB transactions
 
 ## Tech Stack 🔧
 
