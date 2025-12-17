@@ -63,31 +63,3 @@ PORT=3000
 JWT_SECRET=your_jwt_secret_here
 DB_URL_PROD=mongodb://<user>:<pass>@host:port/dbname
 ```
-
-## API Endpoints 📡
-
-All endpoints are JSON-based. The app mounts routers at `/auth`, `/admin`, and `/bookings`.
-
-- POST /auth/register
-	- Body: `{ name, email, password, role }` (role optional: `ADMIN` or `CUSTOMER`)
-	- Response: created user object (password is saved hashed)
-
-- POST /auth/login
-	- Body: `{ email, password }`
-	- Response: `{ token }` (JWT, include it in `Authorization: Bearer <token>` header)
-
-- POST /admin/movies (ADMIN only)
-	- Headers: `Authorization: Bearer <token>`
-	- Body: `{ title, totalSeats }`
-	- Creates a movie. `availableSeats` is initially set to `totalSeats`.
-
-- GET /admin/bookings (ADMIN only)
-	- Headers: `Authorization: Bearer <token>`
-	- Returns all bookings (populated `user` and `movie`)
-
-- POST /bookings (authenticated users)
-	- Headers: `Authorization: Bearer <token>`
-	- Body: `{ movieId, seats, promoCode? }`
-	- Successful response: `{ success: true, amount }`
-	- Errors: Not enough seats, invalid promo, etc. Returned as `{ message }` with 400 status.
-
